@@ -34,6 +34,3 @@ build/
 /.mvn/
 /mvnw
 /mvnw.cmd
-/src/main/java/qreol/project/datastoremicroservice/config/
-/src/main/java/qreol/project/datastoremicroservice/repository/
-/src/main/java/qreol/project/datastoremicroservice/service/
