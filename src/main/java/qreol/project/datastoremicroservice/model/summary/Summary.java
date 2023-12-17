@@ -3,6 +3,7 @@ package qreol.project.datastoremicroservice.model.summary;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import qreol.project.datastoremicroservice.model.MeasurementType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +20,11 @@ public class Summary {
 
     public Summary() {
         values = new HashMap<>();
+    }
+
+    public Summary(Long sensor_id) {
+        values= new HashMap<>();
+        this.sensor_id = sensor_id;
     }
 
     public void addValue(MeasurementType type, SummaryEntry value) {
