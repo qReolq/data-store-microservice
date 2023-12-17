@@ -1,4 +1,4 @@
-package qreol.project.datastoremicroservice.model.summary;
+package qreol.project.datastoremicroservice.model;
 
 public enum MeasurementType {
     TEMPERATURE,

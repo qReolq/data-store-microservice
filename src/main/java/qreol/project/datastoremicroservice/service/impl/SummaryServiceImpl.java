@@ -1,12 +1,15 @@
-package qreol.project.datastoremicroservice.service;
+package qreol.project.datastoremicroservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+import qreol.project.datastoremicroservice.model.Data;
 import qreol.project.datastoremicroservice.model.exception.SensorNotFoundException;
-import qreol.project.datastoremicroservice.model.summary.MeasurementType;
+import qreol.project.datastoremicroservice.model.MeasurementType;
 import qreol.project.datastoremicroservice.model.summary.Summary;
 import qreol.project.datastoremicroservice.model.summary.SummaryType;
 import qreol.project.datastoremicroservice.repository.SummaryRepository;
+import qreol.project.datastoremicroservice.service.SummaryService;
 
 import java.util.Set;
 
@@ -34,5 +37,10 @@ public class SummaryServiceImpl implements SummaryService {
                 measurementTypes,
                 summaryTypes
         ).orElseThrow(SensorNotFoundException::new);
+    }
+
+    @Override
+    public void handle(Data data) {
+        summaryRepository.handle(data);
     }
 }

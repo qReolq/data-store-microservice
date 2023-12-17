@@ -2,7 +2,7 @@ package qreol.project.datastoremicroservice.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import qreol.project.datastoremicroservice.model.summary.MeasurementType;
+import qreol.project.datastoremicroservice.model.MeasurementType;
 import qreol.project.datastoremicroservice.model.summary.Summary;
 import qreol.project.datastoremicroservice.model.summary.SummaryType;
 import qreol.project.datastoremicroservice.service.SummaryService;

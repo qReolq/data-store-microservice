@@ -1,6 +1,6 @@
 package qreol.project.datastoremicroservice.config;
 
-import qreol.project.datastoremicroservice.model.summary.MeasurementType;
+import qreol.project.datastoremicroservice.model.MeasurementType;
 
 import java.util.Locale;
 

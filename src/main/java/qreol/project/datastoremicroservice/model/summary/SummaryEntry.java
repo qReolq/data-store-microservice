@@ -8,6 +8,7 @@ import lombok.Setter;
 public class SummaryEntry {
     private SummaryType type;
     private double value;
+    private long counter;
 
     public SummaryEntry(SummaryType type) {
         this.type = type;
