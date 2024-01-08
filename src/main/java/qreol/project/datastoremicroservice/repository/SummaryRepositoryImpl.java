@@ -144,7 +144,7 @@ public class SummaryRepositoryImpl implements SummaryRepository {
             );
         }
 
-        String sum = jedis.hget(key, SummaryType.SUM.name()).toLowerCase();
+        String sum = jedis.hget(key, SummaryType.SUM.name().toLowerCase());
         double value = Double.parseDouble(sum) / Double.parseDouble(counter);
 
         jedis.hset(key, field, String.valueOf(value));

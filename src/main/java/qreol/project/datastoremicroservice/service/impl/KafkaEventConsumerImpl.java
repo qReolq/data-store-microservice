@@ -1,12 +1,10 @@
 package qreol.project.datastoremicroservice.service.impl;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
+import com.google.gson.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+import qreol.project.datastoremicroservice.config.LocalDateTimeDeserializer;
 import qreol.project.datastoremicroservice.model.Data;
 import qreol.project.datastoremicroservice.model.MeasurementType;
 import qreol.project.datastoremicroservice.service.CDCEventConsumer;
@@ -18,14 +16,19 @@ import java.util.TimeZone;
 
 @Service
 @RequiredArgsConstructor
-public class DebeziumEventConsumerImpl implements CDCEventConsumer {
+public class KafkaEventConsumerImpl implements CDCEventConsumer {
 
     private final SummaryService summaryService;
+    private final LocalDateTimeDeserializer localDateTimeDeserializer;
 
     @Override
-    @KafkaListener(topics = "data")
+    @KafkaListener(topics = {"data-temperature", "data-power", "data-voltage"})
     public void handle(String message) {
-        Data data = parseData(message);
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class, localDateTimeDeserializer)
+                .create();
+        Data data = gson.fromJson(message, Data.class);
+
         summaryService.handle(data);
     }
 

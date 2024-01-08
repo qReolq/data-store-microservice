@@ -8,7 +8,7 @@ import qreol.project.datastoremicroservice.model.summary.SummaryType;
 import java.util.Set;
 
 public interface SummaryService {
-    
+
     Summary get(
             Long sensorId,
             Set<MeasurementType> measurementTypes,
