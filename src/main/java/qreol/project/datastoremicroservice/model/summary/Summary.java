@@ -23,7 +23,7 @@ public class Summary {
     }
 
     public Summary(Long sensor_id) {
-        values= new HashMap<>();
+        values = new HashMap<>();
         this.sensor_id = sensor_id;
     }
 

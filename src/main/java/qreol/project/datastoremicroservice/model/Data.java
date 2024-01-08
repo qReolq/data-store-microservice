@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class Data {
 
     private String id;
-    private Long String;
     private Long sensorId;
     private LocalDateTime timestamp;
     private double measurement;
